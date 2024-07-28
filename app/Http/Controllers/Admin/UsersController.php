@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\User;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use App\Http\Controllers\Controller;
@@ -22,8 +22,7 @@ class UsersController extends Controller
             return abort(401);
         }
 
-
-                $users = User::all();
+        $users = App\Models\User::all();
 
         return view('admin.users.index', compact('users'));
     }
@@ -39,7 +38,7 @@ class UsersController extends Controller
             return abort(401);
         }
         
-        $roles = \App\Role::get()->pluck('title', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
+        $roles = \App\Models\Role::get()->pluck('title', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
 
         return view('admin.users.create', compact('roles'));
     }
@@ -57,11 +56,8 @@ class UsersController extends Controller
         }
         $user = User::create($request->all());
 
-
-
         return redirect()->route('admin.users.index');
     }
-
 
     /**
      * Show the form for editing User.
@@ -75,7 +71,7 @@ class UsersController extends Controller
             return abort(401);
         }
         
-        $roles = \App\Role::get()->pluck('title', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
+        $roles = \App\Models\Role::get()->pluck('title', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
 
         $user = User::findOrFail($id);
 
@@ -97,11 +93,8 @@ class UsersController extends Controller
         $user = User::findOrFail($id);
         $user->update($request->all());
 
-
-
         return redirect()->route('admin.users.index');
     }
-
 
     /**
      * Display User.
@@ -115,13 +108,17 @@ class UsersController extends Controller
             return abort(401);
         }
         
-        $roles = \App\Role::get()->pluck('title', 'id')->prepend(trans('quickadmin.qa_please_select'), '');$expense_categories = \App\ExpenseCategory::where('created_by_id', $id)->get();$income_categories = \App\IncomeCategory::where('created_by_id', $id)->get();$currencies = \App\Currency::where('created_by_id', $id)->get();$incomes = \App\Income::where('created_by_id', $id)->get();$expenses = \App\Expense::where('created_by_id', $id)->get();
+        $roles = \App\Models\Role::get()->pluck('title', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
+        $expense_categories = \App\Models\ExpenseCategory::where('created_by_id', $id)->get();
+        $income_categories = \App\Models\IncomeCategory::where('created_by_id', $id)->get();
+        $currencies = \App\Models\Currency::where('created_by_id', $id)->get();
+        $incomes = \App\Models\Income::where('created_by_id', $id)->get();
+        $expenses = \App\Models\Expense::where('created_by_id', $id)->get();
 
         $user = User::findOrFail($id);
 
         return view('admin.users.show', compact('user', 'expense_categories', 'income_categories', 'currencies', 'incomes', 'expenses'));
     }
-
 
     /**
      * Remove User from storage.
@@ -158,5 +155,4 @@ class UsersController extends Controller
             }
         }
     }
-
 }
