@@ -1,10 +1,11 @@
 # Laravel 5.5 based system for managing expenses and income
 
-__Notice: we've released newer version of this project, based on Laravel 6 and CoreUI Theme. [Click here](https://github.com/LaravelDaily/QuickAdminPanel-ExpenseManager)__.
+**Notice: we've released newer version of this project, based on Laravel 6 and CoreUI Theme. [Click here](https://github.com/LaravelDaily/QuickAdminPanel-ExpenseManager)**.
 
 It is a demo project for demonstrating what can be generated with [QuickAdminPanel](https://quickadminpanel.com) tool.
 
 Features:
+
 - CRUDs for income/expenses and their categories
 - Monthly reports by income/expenses and their categories
 - Multi-tenancy: Ability to register new user who sees only their categories/entries (admin sees all).
@@ -14,8 +15,8 @@ Features:
 
 [demo-expenses.quickadminpanel.com](http://demo-expenses.quickadminpanel.com)
 
-- __Email__: admin@admin.com
-- __Pass__: password
+- **Email**: sajda@mailinator.com
+- **Pass**: 12345678
 
 ![Expense manager screenshot](https://quickadminpanel.com/assets/pages/demos/demo-expenses-01.png)
 
@@ -23,12 +24,12 @@ Features:
 
 ## How to use
 
-- Clone the repository with __git clone__
-- Copy __.env.example__ file to __.env__ and edit database credentials there
-- Run __composer install__
-- Run __php artisan key:generate__
-- Run __php artisan migrate --seed__ (it has some seeded data for your testing)
-- That's it: launch the main URL and login with default credentials __admin@admin.com__ - __password__
+- Clone the repository with **git clone**
+- Copy **.env.example** file to **.env** and edit database credentials there
+- Run **composer install**
+- Run **php artisan key:generate**
+- Run **php artisan migrate --seed** (it has some seeded data for your testing)
+- That's it: launch the main URL and login with default credentials __sajda@mailinator.com__ - **12345678**
 
 ## License
 
